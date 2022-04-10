@@ -9,6 +9,7 @@ public class Grid : ILoggable
     private int[,] _cells;
     private int _cellSize;
     private int _groundHeight;
+    public readonly float _gridYOffset;
 
     public int[,] Cells
     {
@@ -42,6 +43,7 @@ public class Grid : ILoggable
         _cellSize = cellSize;
         _cells = new int[width, length];
         _groundHeight = groundHeight;
+        _gridYOffset = 0.01f;
         
         int wLen = _cells.GetLength(0);
         int lLen = _cells.GetLength(1);
@@ -59,7 +61,6 @@ public class Grid : ILoggable
                 Debug.DrawLine(thisCell, eastCell, Color.red, Single.PositiveInfinity, false);
                 Debug.DrawLine(thisCell, northCell, Color.red, Single.PositiveInfinity, false);
                 Debug.DrawLine(thisCell, southCell, Color.red, Single.PositiveInfinity, false);
-                
             }
         }
         Debug.Log("Created grid!");

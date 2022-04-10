@@ -53,7 +53,7 @@ public class GameEngine : MonoBehaviour
             // Snap it to nearest grid cell (lower left corner)
             float x = Mathf.Round(_gridHit.point.x);
             float z = Mathf.Round(_gridHit.point.z);
-            Vector3 pos = new Vector3(x, _grid.GroundHeight + 0.01f, z);
+            Vector3 pos = new Vector3(x, _grid.GroundHeight + _grid._gridYOffset, z);
             
             Debug.Log($"[GameEngine.cs/LateUpdate]: Hit grid cell at world x: {x}, z: {z}.");
             _quadFactory.CreateQuad(pos, _grid, ref _cellQuads);
